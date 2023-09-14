@@ -1,0 +1,17 @@
+.menu {
+  display: flex;
+  gap: 50px;
+
+  a {
+    text-decoration: none;
+    color: #ffffff;
+  }
+
+  a:hover {
+    color: #8d090d;
+  }
+
+  a:active {
+    color: #8d090d;
+  }
+}

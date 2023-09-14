@@ -1,0 +1,18 @@
+.reviewSection {
+  padding: 20px 0px 20px 20px;
+  width: 40%;
+
+  .reviewList {
+    list-style-type: none; /* Remove bullets */
+    padding: 0;
+
+    .reviewItem {
+      margin-bottom: 15px;
+      p {
+        strong {
+          font-weight: bold;
+        }
+      }
+    }
+  }
+}

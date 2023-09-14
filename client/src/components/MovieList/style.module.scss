@@ -1,0 +1,14 @@
+.moviesList {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap: 20px;
+  padding: 20px;
+}
+
+@media screen and (max-width: 768px) {
+  .moviesList {
+    flex-direction: column;
+    align-items: center;
+  }
+}

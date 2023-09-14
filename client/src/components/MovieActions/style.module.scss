@@ -1,0 +1,38 @@
+.movieActions {
+  display: flex;
+  gap: 10px;
+  justify-content: space-between;
+}
+
+.editButton {
+  text-decoration: none;
+  font-size: 12px;
+  background-color: #007bff; /* Adjust the background color */
+  color: #fff; /* Text color */
+  border: none;
+  padding: 5px 8px;
+  margin: 10px;
+  border-radius: 5px;
+  z-index: 2;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #0056b3;
+  }
+}
+
+.deleteButton {
+  font-size: 12px;
+  background-color: #dc3545;
+  color: #fff;
+  border: none;
+  padding: 5px 8px;
+  margin: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  z-index: 2;
+
+  &:hover {
+    background-color: #c82333;
+  }
+}

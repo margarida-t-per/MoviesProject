@@ -1,0 +1,80 @@
+{
+  "myInfo": {
+    "image": "#",
+    "title": "Web Developer",
+    "name": "Margarida Pereira",
+    "description": "I am a Fullstack Developer based in Porto, Portugal."
+  },
+  "projects": [
+    {
+      "thumbnail": "../src/assets/profile.png",
+      "sub": "Css/HTML",
+      "title": "Website Layout",
+      "href": "#"
+    },
+    {
+      "thumbnail": "../src/assets/profile.png",
+      "sub": "PHP",
+      "title": "Webapp",
+      "href": "#"
+    },
+    {
+      "thumbnail": "../src/assets/profile.png",
+      "sub": "Javascript",
+      "title": "Endless Runner",
+      "href": "#"
+    },
+    {
+      "thumbnail": "../src/assets/profile.png",
+      "sub": "Javascript",
+      "title": "Platform Game",
+      "href": "#"
+    },
+    {
+      "thumbnail": "../src/assets/profile.png",
+      "sub": "Figma",
+      "title": "App Design",
+      "href": "#"
+    },
+    {
+      "thumbnail": "../src/assets/profile.png",
+      "sub": "PHP",
+      "title": "Hybrid Game",
+      "href": "#"
+    }
+  ],
+  "contactInfos": [
+    {
+      "icon": "src/assets/icons/envelope.svg",
+      "tagline": "E-Mail me",
+      "contactLineOne": "blabla@gmail.com",
+      "contactLineTwo": "blablabla@outlook.com"
+    },
+    {
+      "icon": "src/assets/icons/phone.svg",
+      "tagline": "Call me",
+      "contactLineOne": "+135 999 999 999",
+      "contactLineTwo": "+135 111 111 111"
+    },
+    {
+      "icon": "src/assets/icons/pindrop.svg",
+      "tagline": "Find me",
+      "contactLineOne": "22 Baker St",
+      "contactLineTwo": "London W1U 3BW, UK"
+    }
+  ],
+  "socialInfos": [
+    {
+      "icon": "src/assets/icons/instagram.svg",
+      "href": "#"
+    },
+    {
+      "icon": "src/assets/icons/twitter.svg",
+      "href": "#"
+    },
+    {
+      "icon": "src/assets/icons/dribble.svg",
+      "href": "#"
+    }
+  ]
+}
