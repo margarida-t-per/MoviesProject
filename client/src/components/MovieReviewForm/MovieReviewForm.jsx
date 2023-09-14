@@ -2,11 +2,10 @@ import React, { useState } from "react";
 import style from "./style.module.scss";
 import { useUser } from "../../UserContext";
 
-const MovieReviewForm = ({ movieId, userId, onReviewSubmit }) => {
+const MovieReviewForm = ({ movieId, onReviewSubmit }) => {
   const [rating, setRating] = useState(0);
   const [comment, setComment] = useState("");
   const { user } = useUser();
-  userId = "64fd959809e3c1f3d63e05de"; // need to change this
 
   const handleRatingChange = (e) => {
     setRating(e.target.value);
@@ -20,7 +19,7 @@ const MovieReviewForm = ({ movieId, userId, onReviewSubmit }) => {
     e.preventDefault();
     const newReview = {
       movieId,
-      userId,
+      userId: user.user._id,
       rating: parseInt(rating),
       comment,
     };

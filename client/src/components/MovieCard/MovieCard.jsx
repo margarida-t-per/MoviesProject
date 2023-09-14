@@ -13,6 +13,7 @@ const MovieCard = ({
   onDelete,
 }) => {
   const [averageRating, setAverageRating] = useState(null);
+  const [totalRating, setTotalRating] = useState(null);
 
   useEffect(() => {
     fetch(`http://localhost:4050/api/movies/${movieId}/review`)
@@ -23,6 +24,8 @@ const MovieCard = ({
           0
         );
         const avgRating = data.length > 0 ? totalRating / data.length : null;
+
+        setTotalRating(data.length);
         setAverageRating(avgRating);
       })
       .catch((error) => console.error("Error fetching reviews:", error));
@@ -30,10 +33,6 @@ const MovieCard = ({
 
   const handleCardClick = () => {
     onClick();
-  };
-
-  const handleEditClick = () => {
-    // Handle the edit action here
   };
 
   const handleDeleteClick = () => {
@@ -65,7 +64,8 @@ const MovieCard = ({
         <p className={style.releaseDate}>Release Date: {releaseDate}</p>
         {averageRating !== null ? (
           <p className={style.rating}>
-            Rating: {averageRating.toFixed(1)} stars
+            Rating: {averageRating.toFixed(1)} stars from {totalRating}{" "}
+            {totalRating == 1 ? "review" : "reviews"}
           </p>
         ) : (
           <p className={style.rating}>Rating: N/A</p>
@@ -73,11 +73,7 @@ const MovieCard = ({
         <p className={style.genres}>Genres: {genres.join(", ")}</p>
       </div>
 
-      <MovieActions
-        movieId={movieId}
-        onEdit={handleEditClick}
-        onDelete={handleDeleteClick}
-      />
+      <MovieActions movieId={movieId} onDelete={handleDeleteClick} />
     </div>
   );
 };
