@@ -3,16 +3,20 @@ import MenuItem from "../MenuItem/MenuItem";
 
 const menuItems = [
   { text: "Home", href: "/" },
-  { text: "Login", href: "/login" },
   { text: "Add Movie", href: "/addmovie" },
 ];
 
-const Menu = () => {
+const Menu = ({ user, logout }) => {
   return (
     <div className={style.menu}>
       {menuItems.map((menuItem, index) => (
         <MenuItem key={index} text={menuItem.text} href={menuItem.href} />
       ))}
+      {user ? (
+        <MenuItem text="Logout" href="/logout" />
+      ) : (
+        <MenuItem text="Login" href="/login" />
+      )}
     </div>
   );
 };

@@ -1,34 +1,17 @@
-import React, { createContext, useState, useEffect } from "react";
-import { AuthProvider } from "./AuthContext";
+import React, { createContext, useContext, useState } from "react";
 
 const MyContext = createContext();
 
-const AppProvider = ({ children }) => {
-  const [myInfo, setMyInfo] = useState([]);
-  const [projects, setProjects] = useState([]);
-  const [contactInfos, setContactInfos] = useState([]);
-  const [socialInfos, setSocialInfos] = useState([]);
+export function useMyContext() {
+  return useContext(MyContext);
+}
 
-  useEffect(() => {
-    fetch("http://localhost:5173/data/fakeData.json")
-      .then((response) => response.json())
-      .then((data) => {
-        setMyInfo(data.myInfo);
-        setProjects(data.projects);
-        setContactInfos(data.contactInfos);
-        setSocialInfos(data.socialInfos);
-      });
-  }, []);
+export function MyProvider({ children }) {
+  const [myData, setMyData] = useState(null);
 
   return (
-    <AuthProvider>
-      <MyContext.Provider
-        value={{ myInfo, projects, contactInfos, socialInfos }}
-      >
-        {children}
-      </MyContext.Provider>
-    </AuthProvider>
+    <MyContext.Provider value={{ myData, setMyData }}>
+      {children}
+    </MyContext.Provider>
   );
-};
-
-export { MyContext, AppProvider };
+}

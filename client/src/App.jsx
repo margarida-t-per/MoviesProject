@@ -1,24 +1,31 @@
-import { Route, Routes } from "react-router-dom";
-import { AppProvider } from "./MyContext";
-
+import React from "react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { UserProvider } from "./UserContext"; // Import your UserProvider
+import { MyProvider } from "./MyContext"; // Import your MyProvider
 import Navbar from "./components/Navbar/Navbar";
 import Home from "./pages/Home/Home";
 import LoginPage from "./pages/Login/LoginPage";
+import LogoutPage from "./pages/LogoutPage/LogoutPage";
 import AddMovie from "./pages/AddMovie/AddMovie";
 import EditMovie from "./pages/EditMovie/EditMovie";
 import Footer from "./components/Footer/Footer";
 
-export default function App() {
+function App() {
   return (
-    <AppProvider>
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/login" element={<LoginPage />} />
-        <Route path="/addmovie" element={<AddMovie />} />
-        <Route path="/editmovie/:movieId" element={<EditMovie />} />
-      </Routes>
-      <Footer />
-    </AppProvider>
+    <UserProvider>
+      <MyProvider>
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/logout" element={<LogoutPage />} />
+          <Route path="/addmovie" element={<AddMovie />} />
+          <Route path="/editmovie/:movieId" element={<EditMovie />} />
+        </Routes>
+        <Footer />
+      </MyProvider>
+    </UserProvider>
   );
 }
+
+export default App;

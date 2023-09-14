@@ -1,15 +1,13 @@
-import style from "./style.module.scss";
 import React, { useState } from "react";
 import axios from "axios";
-import { useAuth } from "../../AuthContext";
+import { useUser } from "../../UserContext";
+import { useNavigate } from "react-router-dom";
 
-const Login = (props) => {
+const Login = ({ onFormSwitch }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
-  const { login } = useAuth();
-  const [userId, setUserId] = useState("");
-  const [token, setToken] = useState("");
+  const { login } = useUser();
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -18,24 +16,12 @@ const Login = (props) => {
         email,
         password,
       });
-      console.log("Login successful:", response.data);
 
-      const decodedToken = ""; // Use jsonwebtoken to decode the token
+      const userData = response.data;
 
-      if (decodedToken) {
-        const userType = decodedToken.roles;
-        if (userType === "64fd872c0d7b594f26bd9592") {
-          setUserId(response.data._id);
-          setToken("User");
-          login(response.data._id, response.data.accessToken, userType);
-        } else if (userType === "64fd872c0d7b594f26bd9592") {
-          setUserId(response.data._id);
-          setToken("Admin");
-          login(response.data._id, response.data.accessToken, userType);
-        }
-      } else {
-        console.log("Invalid token");
-      }
+      login(userData);
+      console.log("Login successfull:", userData);
+      navigate("/");
     } catch (error) {
       console.error("Login failed:", error);
     }
