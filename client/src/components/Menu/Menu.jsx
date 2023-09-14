@@ -6,7 +6,7 @@ const menuItems = [
   { text: "Add Movie", href: "/addmovie" },
 ];
 
-const Menu = ({ user, logout }) => {
+const Menu = ({ user }) => {
   return (
     <div className={style.menu}>
       {menuItems.map((menuItem, index) => (

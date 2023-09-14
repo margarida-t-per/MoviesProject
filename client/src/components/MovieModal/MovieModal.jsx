@@ -52,7 +52,6 @@ const MovieModal = ({ isOpen, onClose, trailerLink, movieId }) => {
           url={trailerLink}
           controls={true}
           width="100%"
-          height="100%"
         />
         <MovieReviewSection reviews={reviews} />
         <MovieReviewForm
