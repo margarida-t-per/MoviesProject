@@ -25,11 +25,16 @@ const MovieModal = ({ isOpen, onClose, trailerLink, movieId }) => {
   }
 
   const handleReviewSubmit = (review) => {
+    const userString = localStorage.getItem("user");
+    const user = JSON.parse(userString);
+    const accessToken = user.accessToken;
+    const headers = new Headers();
+    headers.append("Authorization", `Bearer ${accessToken}`);
+    headers.append("Content-Type", "application/json");
+
     fetch(`http://localhost:4050/api/movies/${movieId}/review`, {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
+      headers,
       body: JSON.stringify(review),
     })
       .then((response) => response.json())

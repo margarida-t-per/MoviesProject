@@ -1,4 +1,5 @@
 import style from "./style.module.scss";
+import React, { useEffect, useState } from "react";
 
 const MovieReviewSection = ({ reviews }) => {
   return (

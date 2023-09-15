@@ -36,17 +36,7 @@ const MovieCard = ({
   };
 
   const handleDeleteClick = () => {
-    fetch(`http://localhost:4050/api/movies/${movieId}`, {
-      method: "DELETE",
-    })
-      .then((response) => {
-        if (response.ok) {
-          onDelete(movieId);
-        }
-      })
-      .catch((error) => {
-        console.error("Error deleting movie:", error);
-      });
+    onDelete(movieId);
   };
 
   return (

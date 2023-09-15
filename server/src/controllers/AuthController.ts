@@ -1,7 +1,6 @@
 import { Request, Response } from "express";
 import AuthService from "../services/AuthService.js";
 import { IRole, RoleModel, UserModel } from "../models/userModel.js";
-//import Role from "../models/roleModel.js";
 import TokenService from "../services/TokenService.js";
 import bcrypt from "bcryptjs";
 import { validationResult } from "express-validator";
@@ -34,12 +33,12 @@ class AuthController {
           .status(500)
           .json({ message: "Error during registration.", errors });
       }
-      const { name, email, password, roleIds } = req.body;
+      const { name, email, password, roles } = req.body;
       const newUser = await AuthService.register(
         name,
         email,
         password,
-        roleIds
+        roles
       );
       console.log(newUser);
       const { accessToken } = TokenService.generateAccessToken(newUser);
@@ -104,6 +103,8 @@ class AuthController {
         .send({ errorMessage: "Failed to delete role", error: err });
     }
   }
+  
+  
 }
 
 export default new AuthController();

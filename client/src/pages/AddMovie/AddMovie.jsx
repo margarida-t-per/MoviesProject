@@ -15,16 +15,13 @@ const AddMovie = () => {
       try {
         const userRoles = user && user.user.roles[0];
         if (userRoles === "64fd872c0d7b594f26bd9592") {
-          console.log("yes");
           setIsAdmin(true);
         }
         setIsLoading(false);
       } catch (error) {
-        console.error(error);
         setIsLoading(false);
       }
     }
-    console.log(isAdmin);
     checkUserRole();
   }, [user]);
 

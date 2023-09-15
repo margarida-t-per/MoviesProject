@@ -44,6 +44,11 @@ const EditMovieForm = ({ movieData, onUpdate }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    const userString = localStorage.getItem("user");
+    const user = JSON.parse(userString);
+    const accessToken = user.accessToken;
+    const headers = new Headers();
+    headers.append("Authorization", `Bearer ${accessToken}`);
 
     try {
       const formDataForSubmission = new FormData();
@@ -57,6 +62,7 @@ const EditMovieForm = ({ movieData, onUpdate }) => {
         `http://localhost:4050/api/movies/${movieData._id}`,
         {
           method: "PUT",
+          headers,
           body: formDataForSubmission,
         }
       );

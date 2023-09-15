@@ -23,8 +23,15 @@ const MoviesList = () => {
   };
 
   const handleDeleteMovie = (movieId) => {
+    const userString = localStorage.getItem("user");
+    const user = JSON.parse(userString);
+    const accessToken = user.accessToken;
+    const headers = new Headers();
+    headers.append("Authorization", `Bearer ${accessToken}`);
+
     fetch(`http://localhost:4050/api/movies/${movieId}`, {
       method: "DELETE",
+      headers,
     })
       .then((response) => {
         if (response.ok) {
