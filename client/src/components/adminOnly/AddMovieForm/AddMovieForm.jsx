@@ -99,7 +99,9 @@ const AddMovieForm = ({ onAdd }) => {
           name="posterUrl"
           onChange={handleChange}
         />
-        <label htmlFor="genres">Genres:</label>
+        <label htmlFor="genres">
+          Genres (Separated with a comma ex: crime, thriller):
+        </label>
         <input
           type="text"
           id="genres"

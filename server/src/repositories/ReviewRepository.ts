@@ -25,7 +25,6 @@ class ReviewRepository {
 
       await ReviewModel.findByIdAndDelete(id);
 
-      // After deleting the review, fetch all remaining reviews for the same movie
       const reviews = await ReviewModel.find({ movieId });
       return reviews;
     } catch (err) {

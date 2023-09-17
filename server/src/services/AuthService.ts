@@ -38,7 +38,6 @@ class AuthService {
         throw new Error(`User ${name} already exists`);
       }
 
-      // Assign roles based on provided roleIds or use the default role ID
       const rolesToAssign =
         roleIds.length > 0 ? roleIds : ["64fd87340d7b594f26bd9594"];
 

@@ -50,11 +50,9 @@ const UserSchema = new mongoose.Schema({
     type: String,
     required: true,
     set: function (this: IUser, plainPassword: string): string {
-      // Hash password before storing it
       return bcrypt.hashSync(plainPassword, 7);
     },
     get: function (this: IUser, hashedPassword: string): string {
-      // Return hashed password when accessed
       return hashedPassword;
     },
   },

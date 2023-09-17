@@ -12,7 +12,7 @@ const Footer = () => {
     <div className={style.footer}>
       <Logo></Logo>
       <Menu user={user}></Menu>
-      <p>©{currentYear} All rights reserved by Me </p>
+      <p>©{currentYear} All rights reserved to Me </p>
     </div>
   );
 };

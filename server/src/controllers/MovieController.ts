@@ -57,7 +57,7 @@ class MovieController {
     try {
       const image = req.files?.posterUrl;
 
-      let imageUrl = "no-image.jpeg";
+      let imageUrl = "no-image.png";
 
       if (image) {
         imageUrl = await FileService.save(image);
@@ -110,7 +110,7 @@ class MovieController {
       if (image) {
         imageUrl = await FileService.save(image);
 
-        if (existingMovie.posterUrl !== "no-image.jpeg") {
+        if (existingMovie.posterUrl !== "no-image.png") {
           await FileService.delete(existingMovie.posterUrl);
         }
       }
